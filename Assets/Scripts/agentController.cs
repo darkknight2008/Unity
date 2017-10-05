@@ -12,6 +12,8 @@ public class agentController : MonoBehaviour {
 
     private agentExample targetscript;
 
+    private tsj_monster monster_targetscript;
+
     //private Rigidbody crate;
 
     public GameObject crate1;
@@ -52,6 +54,12 @@ public class agentController : MonoBehaviour {
                 {
                     targetscript = hit.collider.GetComponent<agentExample>();
                     targetscript.SwitchStatus();
+                    clear_move();
+                }
+                else if (hit.collider.CompareTag("Monster"))
+                {
+                    monster_targetscript = hit.collider.GetComponent<tsj_monster>();
+                    monster_targetscript.SwitchStatus();
                     clear_move();
                 }
                 else

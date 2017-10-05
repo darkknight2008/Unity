@@ -16,7 +16,7 @@ public class agentExample : MonoBehaviour
 
     public float thresh;
 
-    private bool activate;
+    public bool activate;
 
     private Vector3 rand;
     private Vector3 change;
@@ -45,7 +45,7 @@ public class agentExample : MonoBehaviour
                 {
                     rand = UnityEngine.Random.onUnitSphere;
                     change = rand * error;
-                    agent.SetDestination(agent.destination + change);
+                    agent.GetComponent<agentExample>().MoveTo(agent.destination + change);
                     break;
                 }
             }
@@ -54,10 +54,7 @@ public class agentExample : MonoBehaviour
 
     public void MoveTo(Vector3 p)
     {
-        if (activate)
-        {
-            agent.SetDestination(p);
-        }
+        agent.SetDestination(p);
     }
 
     public void SwitchStatus()

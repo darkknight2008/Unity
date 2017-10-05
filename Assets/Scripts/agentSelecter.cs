@@ -5,10 +5,12 @@ using UnityEngine;
 public class agentSelecter : MonoBehaviour {
     
     private GameObject[] agents;
+    private GameObject[] monsters;
 
     // Use this for initialization
     void Start () {
         agents = GameObject.FindGameObjectsWithTag("Navagent");
+        monsters = GameObject.FindGameObjectsWithTag("Monster");
     }
 	
 	// Update is called once per frame
@@ -20,9 +22,18 @@ public class agentSelecter : MonoBehaviour {
     {
         foreach (GameObject a in agents)
         {
-            a.GetComponent<agentExample>().MoveTo(p);
+            if (a.GetComponent<agentExample>().activate)
+            {
+                a.GetComponent<agentExample>().MoveTo(p);
+            }
         }
-
+        foreach (GameObject a in monsters)
+        {
+            if (a.GetComponent<tsj_monster>().activate)
+            {
+                a.GetComponent<tsj_monster>().MoveTo(p);
+            }
+        }
     }
 
     public void DeselectAll()
@@ -30,6 +41,10 @@ public class agentSelecter : MonoBehaviour {
         foreach (GameObject a in agents)
         {
             a.GetComponent<agentExample>().TrunOff();
+        }
+        foreach (GameObject a in monsters)
+        {
+            a.GetComponent<tsj_monster>().TrunOff();
         }
     }
 
