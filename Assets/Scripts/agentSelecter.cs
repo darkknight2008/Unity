@@ -31,7 +31,7 @@ public class agentSelecter : MonoBehaviour {
         {
             if (a.GetComponent<tsj_monster>().activate)
             {
-                a.GetComponent<tsj_monster>().MoveTo(p);
+                StartCoroutine(a.GetComponent<tsj_monster>().MoveTo(p));
             }
         }
     }
