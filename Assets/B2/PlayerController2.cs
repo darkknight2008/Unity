@@ -81,26 +81,26 @@ public class PlayerController2 : MonoBehaviour
         //}
 
         //if (Input.GetKey("space") && isOnGround)
-        if (Input.GetKey("space"))
+        if (Input.GetKey("v") && isOnGround)
         {
-            //rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f), ForceMode.Impulse);
-            //isOnGround = false;
+            rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f), ForceMode.Impulse);
+            isOnGround = false;
             anim.SetBool("jump",true);
         }
-        if (rotate != 0.0f) {
-            anim.SetBool("jump",false);
-        }
+        //if (rotate != 0.0f) {
+        //    anim.SetBool("jump",false);
+        //}
         
 
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Ground")
-    //    {
-            //isOnGround = true;
-    //        anim.SetBool("jump", false);
-     //   }
-    //}
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isOnGround = true;
+            anim.SetBool("jump", false);
+        }
+    }
 
 }

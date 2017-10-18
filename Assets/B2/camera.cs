@@ -39,7 +39,7 @@ public class camera : MonoBehaviour
     {
         cameraDistanceScale += - Input.GetAxis("Mouse ScrollWheel")* Time.deltaTime * scaleSpeed;
 
-        if (Input.GetKey("f") && Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             camerPositionLocal = Quaternion.AngleAxis(rotationSpeed * Time.deltaTime * Input.GetAxis("Mouse X"), Vector3.up) * camerPositionLocal;
             if ((Input.GetAxis("Mouse Y") < 0 && camerPositionLocal.y <= 0.95 * camerPositionLocal.magnitude) || (Input.GetAxis("Mouse Y") > 0 && camerPositionLocal.y >= -0.5 * camerPositionLocal.magnitude))
@@ -71,8 +71,10 @@ public class camera : MonoBehaviour
         }
 
         Q.SetFromToRotation(camerPositionLocal, initCameraPosition - initPlayerPosition);
-        pv = player.GetComponent<Rigidbody>().velocity.magnitude;
+
+        pv = Vector3.ProjectOnPlane(player.GetComponent<Rigidbody>().velocity, Vector3.up).magnitude;
         camerPositionLocal = Quaternion.Lerp(Quaternion.identity, Q, Time.deltaTime * pv * backSpeed) * camerPositionLocal;
+
         R0t = player.transform.rotation * Quaternion.Inverse(initPlayerRotation);
         transform.position = player.transform.position + R0t * camerPositionLocal * cameraDistanceScale;
         Q.SetLookRotation(player.transform.position - transform.position);

@@ -63,7 +63,8 @@ public class AgentControllerB2 : MonoBehaviour
         }
         anim.SetFloat("v", agent.velocity.magnitude);
         w = GetComponent<Rigidbody>().angularVelocity.magnitude * 1000000000000;
-        anim.SetFloat("w", w);
+        anim.SetFloat("angle", w);
+        anim.SetBool("jump", agent.isOnOffMeshLink);
     }
 
     public void MoveTo(Vector3 p)

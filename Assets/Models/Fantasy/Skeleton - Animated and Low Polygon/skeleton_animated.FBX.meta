@@ -1197,7 +1197,7 @@ ModelImporter:
       name: Jump
       takeName: Take 001
       firstFrame: 627
-      lastFrame: 640
+      lastFrame: 639
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1529,7 +1529,7 @@ ModelImporter:
       name: Run
       takeName: Take 001
       firstFrame: 814
-      lastFrame: 831
+      lastFrame: 830
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2691,10 +2691,10 @@ ModelImporter:
       name: Walk01
       takeName: Take 001
       firstFrame: 1143
-      lastFrame: 1175
+      lastFrame: 1174
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0.08
+      level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -3023,10 +3023,10 @@ ModelImporter:
       name: WalkBack
       takeName: Take 001
       firstFrame: 1204
-      lastFrame: 1239
+      lastFrame: 1238
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: 0.03
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0

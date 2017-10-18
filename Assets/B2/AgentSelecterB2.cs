@@ -24,7 +24,15 @@ public class AgentSelecterB2 : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKey("f"))
+        {
+            foreach (GameObject agent in agents)
+            {
+                agent.GetComponent<AgentControllerB2>().SwitchSpeed();
+            }
+        }
+
+            if (Input.GetButtonDown("Fire2"))
         {
             if (Physics.Raycast(ray, out hit, 1000))
             {

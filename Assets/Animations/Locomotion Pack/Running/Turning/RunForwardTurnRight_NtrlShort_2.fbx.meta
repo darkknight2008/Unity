@@ -195,11 +195,11 @@ ModelImporter:
     - serializedVersion: 16
       name: RunForwardTurnRight_NtrlShort_2
       takeName: _32b_a_U1_M_P_RunForwardTurnRight_NtrlShort__Fb_Dia1m_No_0_PJ_8
-      firstFrame: 0
-      lastFrame: 316
+      firstFrame: 80
+      lastFrame: 160
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0.6
+      level: 0.7
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -212,7 +212,7 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
-      mirror: 1
+      mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
