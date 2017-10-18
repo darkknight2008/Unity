@@ -54,12 +54,13 @@ public class PlayerController2 : MonoBehaviour
         // Move by Position
         velocity = (move >= 0) ? speed: backspeed;
         velocity *= move;
-        velocity = (Input.GetKey(KeyCode.LeftAlt)) ? velocity * extraPower : velocity;
+        velocity = (Input.GetKey(KeyCode.Z)) ? velocity * extraPower : velocity;
         rb.transform.position += velocity * Time.deltaTime * direction;
         angleVelocity = (move >= 0) ? -angleSpeed : angleSpeed;
         angleVelocity *= rotate;
         rb.transform.rotation = Quaternion.Euler(new Vector3(0.0f, angleVelocity * Time.deltaTime, 0.0f)) * rb.transform.rotation;
         anim.SetFloat("v", velocity);
+        anim.SetFloat("angle", angleVelocity);
 
         //deltaP = move * Time.deltaTime * direction;
         //if (Input.GetKeyDown(KeyCode.LeftAlt))
@@ -79,19 +80,27 @@ public class PlayerController2 : MonoBehaviour
         //    anim.SetFloat("v", backspeed * move);
         //}
 
-        if (Input.GetKey("space") && isOnGround)
+        //if (Input.GetKey("space") && isOnGround)
+        if (Input.GetKey("space"))
         {
-            rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f), ForceMode.Impulse);
-            isOnGround = false;
+            //rb.AddForce(new Vector3(0.0f, jumpHeight, 0.0f), ForceMode.Impulse);
+            //isOnGround = false;
+            anim.SetBool("jump",true);
         }
+        if (rotate != 0.0f) {
+            anim.SetBool("jump",false);
+        }
+        
+
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isOnGround = true;
-        }
-    }
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Ground")
+    //    {
+            //isOnGround = true;
+    //        anim.SetBool("jump", false);
+     //   }
+    //}
 
 }
