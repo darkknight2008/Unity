@@ -29,11 +29,11 @@ public class B2_2 : MonoBehaviour {
             {
                 transform.position = transform.position + transform.forward * y_distance;
             }
-            if (transform.position.y < 3.2 && y_distance < 0)
+            if (transform.position.y < 1.5 && y_distance < 0)
             {
                 transform.position = transform.position + transform.forward * y_distance;
             }
-            if (transform.position.y <= 5 && transform.position.y >= 3.2)
+            if (transform.position.y <= 5 && transform.position.y >= 1.5)
             {
                 transform.position = transform.position + transform.forward * y_distance;
             }
