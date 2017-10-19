@@ -14,6 +14,7 @@ public class AgentControllerB2 : MonoBehaviour
     public Material speedUpMaterial;
     public float walkSpeed;
     public float runSpeed;
+    public float angelScale;
 
     public float w;
 
@@ -62,7 +63,7 @@ public class AgentControllerB2 : MonoBehaviour
             }
         }
         anim.SetFloat("v", agent.velocity.magnitude);
-        w = GetComponent<Rigidbody>().angularVelocity.magnitude * 1000000000000;
+        w = GetComponent<Rigidbody>().angularVelocity.magnitude * angelScale;
         anim.SetFloat("angle", w);
         anim.SetBool("jump", agent.isOnOffMeshLink);
     }
